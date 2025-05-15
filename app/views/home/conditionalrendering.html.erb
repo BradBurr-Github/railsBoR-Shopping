@@ -1,0 +1,66 @@
+<table class="table">
+  <tr>
+    <td>Name</td>
+    <td>Is Visible</td>
+    <td>Is Logged In</td>
+    <td>Country Code</td>
+    <td>Work Experience</td>
+    <td>State Code</td>
+  </tr>
+  <tr>
+    <td> <%= @data[:name] %></td>
+    <td> <%= @data[:isVisible] %></td>
+    <td> <%= @data[:loggedIn] %></td>
+    <td> <%= @data[:countryCode] %></td>
+    <td> <%= @data[:workExperience] %></td>
+    <td> <%= @data[:stateCode] %></td>
+  </tr>
+</table>
+
+<% if @data[:loggedIn] %>
+  <h1> Hi <%= @data[:name] %>! You are logged in! </h1>
+<% else %>
+  <h1> Hi <%= @data[:name] %>! You are a guest to this page! Please login to continue. </h1>
+<% end %>
+
+<% if @data[:loggedIn] === true %>
+  <h1> Hi <%= @data[:name] %>! You are logged in! </h1>
+<% else %>
+  <h1> Hi <%= @data[:name] %>! You are a guest to this page! Please login to continue. </h1>
+<% end %>
+
+<% if @data[:name] == "Jimmy Anderson" %>
+  <h1> Hi <%= @data[:name] %>! You are an Elite player! </h1>
+<% else %>
+  <h1> Hi <%= @data[:name] %>! You are not an Elite player yet. </h1>
+<% end %>
+
+<% if @data[:name] != "Jimmy Anderson" %>
+  <h1> Hi <%= @data[:name] %>! You are an Elite player! </h1>
+<% else %>
+  <h1> Hi <%= @data[:name] %>! You are not an Elite player yet. </h1>
+<% end %>
+
+<% if @data[:countryCode] == "US" %>
+  <h1>Currency Code is USD.</h1>
+<% elsif @data[:countryCode] == "UK" %>
+  <h1>Currency Code is GBP.</h1>
+<% elsif @data[:countryCode] == "IND" %>
+  <h1>Currency Code is INR.</h1>
+<% elsif @data[:countryCode] == "AUS" %>
+  <h1>Currency Code is AUD.</h1>
+<% else %>
+  <h1>Invalid Currency Code.</h1>
+<% end %>
+
+<% if @data[:workExperience] > 30 and @data[:workExperience] < 50 %>
+  <h1>You are eligible for the post of CEO.</h1>
+<% else %>
+  <h1>You are ineligible for the CEO position because of your lack of experience.</h1>
+<% end %>
+
+<% if @data[:stateCode] == nil %>
+  <h1>Please enter a value for your State Code.</h1>
+<% else %>
+  <h1> Your State Code is <%= @data[:stateCode] %>. </h1>
+<% end %>

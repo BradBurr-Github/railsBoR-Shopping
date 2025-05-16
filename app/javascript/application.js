@@ -1,12 +1,14 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 //= require jquery
+//= require rails-ujs
+//= require toastr
 
 import "@hotwired/turbo-rails"
 import "controllers"
 
 $(document).on('turbo:load', function(e) {
-  debugger
 	hideShowAddress();
+  changeCategory();
 });
 
 function hideShowAddress() {
@@ -17,4 +19,21 @@ function hideShowAddress() {
     else
       $("#lblShowHide").text("Hide Address Details")  
   });
+}
+
+function changeCategory() {
+  $('.category-dropdown').on('change', function(e) {
+    var categoryName = $(this).val();
+    debugger
+
+    $.ajax({
+      url: '/shoppingcart/product_list',
+      method: 'get',
+      data: {
+        category: categoryName
+      }
+    });
+    e.stopImmediatePropagation();
+
+  })
 }

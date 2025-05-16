@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   get "home/LoadUserDetails/:id" => "home#LoadUserDetails", as: "LoadUserDetails"
   get "home/ShowUserDetails" => "home#ShowUserDetails"
 
+  get "shoppingcart/index" => "shoppingcart#index"
+  get "shoppingcart/product_list" => "shoppingcart#product_list"
+
 end
